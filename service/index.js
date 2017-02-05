@@ -20,3 +20,11 @@ app.get('/heyMax', function (req, res) {
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
 })
+
+//This function should be the last called with app.use
+//To use, 'throw new Error('oops')'
+app.use((err, request, response, next) => {  
+  // log the error, for now just console.log
+  console.log(err)
+  response.status(500).send('Something broke!')
+})
