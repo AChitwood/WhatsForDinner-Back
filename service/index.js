@@ -1,5 +1,5 @@
 var express = require('express'),
-   json = require('express-json'),
+   //json = require('express-json'),
    restful = require('node-restful'),
    mongoose = restful.mongoose;
 
@@ -16,7 +16,7 @@ var app = express();
 
 
 
-app.use(json())
+//app.use(json())
 
 app.get('/', function (req, res) {
   res.json({
