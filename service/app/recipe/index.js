@@ -22,7 +22,7 @@ exports.create = function(req, res, next) {
 }
 
 exports.get = function(req, res, next) {
-	Recipe.findById(new ObjectID(req.params.id), function(err, recipe) {
+	Recipe.findById(new ObjectId(req.params.id), function(err, recipe) {
 		if(err) {
 			res.status(500);
 			res.json({

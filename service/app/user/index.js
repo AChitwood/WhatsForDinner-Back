@@ -22,7 +22,7 @@ exports.create = function(req, res, next) {
 }
 
 exports.get = function(req, res, next) {
-	User.findById(new ObjectID(req.params.id), function(err, user) {
+	User.findById(new ObjectId(req.params.id), function(err, user) {
 		if(err) {
 			res.status(500);
 			res.json({
