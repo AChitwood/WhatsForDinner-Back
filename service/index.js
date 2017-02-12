@@ -37,7 +37,7 @@ controllers['user'] = require('./app/user/index.js');
 
 //............  Endpoints
 server.get('/ingredient/:id', controllers.ingredient.getByID)
-server.get('/ingredient/:name', controllers.ingredient.getByName)
+server.get('/ingredient/getByName/:name', controllers.ingredient.getByName)
 server.put('/ingredient/:id', controllers.ingredient.update)
 server.post('/ingredient', controllers.ingredient.create)
 
