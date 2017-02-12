@@ -2,6 +2,11 @@ var express = require('express')
 var json = require('express-json');
 var app = express()
 
+app.configure(function(){
+  app.use(express.bodyParser());
+  app.use(express.methodOverride());
+})
+
 app.use(json())
 
 app.get('/', function (req, res) {
