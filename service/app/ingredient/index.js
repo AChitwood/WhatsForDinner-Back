@@ -1,6 +1,6 @@
 var mongoose = require('mongoose'),
 	Ingredient = mongoose.model("Ingredient"),
-	ObjectID = mongoose.Types.ObjectId()
+	ObjectId = mongoose.Types.ObjectId()
 
 exports.create = function(req, res, next) {
 	var ingredientModel = new Ingredient(req.body);
