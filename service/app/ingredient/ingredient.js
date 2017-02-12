@@ -1,6 +1,5 @@
 var mongoose = require("mongoose");
-var Schema = mongoose.Schema,
-	ObjectId = Schema.ObjectId;
+var Schema = mongoose.Schema;
 
 var IngredientSchema = new Schema({
 	name: String
