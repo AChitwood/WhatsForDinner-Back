@@ -52,7 +52,7 @@ exports.getByName = function(req, res, next) {
 		if(err) {
 			res.status(500);
 			res.json({
-				type: false;
+				type: false,
 				data: "Error occured: " + err
 			})
 		}
