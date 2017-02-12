@@ -21,7 +21,7 @@ exports.create = function(req, res, next) {
 	})
 }
 
-exports.get = function(req, res, next) {
+exports.getByID = function(req, res, next) {
 	Ingredient.findById(new ObjectId(req.params.id), function(err, ingredient) {
 		if(err) {
 			res.status(500);
@@ -41,6 +41,32 @@ exports.get = function(req, res, next) {
 				res.json({
 					type: false,
 					data: "Ingredient: " + req.params.id + " not found"
+				})
+			}
+		}
+	})
+}
+
+exports.getByName = function(req, res, next) {
+	Ingredient.find({ name: req.params.name }, function(err, ingredient) {
+		if(err) {
+			res.status(500);
+			res.json({
+				type: false;
+				data: "Error occured: " + err
+			})
+		}
+		else {
+			if(ingredient) {
+				res.json({
+					type: true,
+					data: ingredient
+				})
+			}
+			else {
+				res.json({
+					type: false,
+					data: "Ingredient: " + req.params.name + " not found"
 				})
 			}
 		}
