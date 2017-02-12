@@ -19,7 +19,7 @@
   "dependencies": {
     "express": "latest",
     "mongoose": "latest",
-    "blueBird": "latest",
+    "bluebird": "latest",
     "node-restful": "latest",
     "restify": "latest"
   }

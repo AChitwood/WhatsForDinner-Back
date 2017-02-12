@@ -11,7 +11,7 @@ var restful = require('node-restful'),
 mongoose.Promise = require('bluebird');
 mongoose.connect('mongodb://localhost/whats_for_dinner_db');
 //Local only
-//mongoose.connect('mongodb://username:password@host:port/database?options...');
+//mongoose.connect('mongodb://username:passwordHere@uaf135145.ddns.uark.edu/whats_for_dinner_db');
 
 
 
