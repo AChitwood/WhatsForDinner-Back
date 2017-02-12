@@ -19,6 +19,7 @@
   "dependencies": {
     "express": "latest",
     "mongoose": "latest",
-    "node-restful": "latest"
+    "node-restful": "latest",
+    "restify": "latest"
   }
 }

@@ -89,5 +89,6 @@ exports.deleteIngredient = function(req, res, next) {
 				data: "Ingredient: " + req.params.id + " deleted successfully"
 			})
 		}
-	})
+	});
+	
 }

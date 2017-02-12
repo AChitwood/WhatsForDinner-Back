@@ -3,6 +3,6 @@ var Schema = mongoose.Schema;
 
 var RecipeSchema = new Schema({
 	name: String,
-	isPrivate: boolean
+	isPrivate: Boolean
 });
 mongoose.model('Recipe', RecipeSchema);
