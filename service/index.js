@@ -8,6 +8,7 @@ var restful = require('node-restful'),
 
 
 //Connect to mongo
+mongoose.Promise = require('bluebird');
 mongoose.connect('mongodb://localhost/whats_for_dinner_db');
 //Local only
 //mongoose.connect('mongodb://username:password@host:port/database?options...');
