@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
 	Ingredient = mongoose.model("Ingredient"),
 	ObjectID = mongoose.Types.ObjectID
 
-exports.createIngredient = function(req, res, next) {
+exports.create = function(req, res, next) {
 	var ingredientModel = new Ingredient(req.body);
 	ingredientModel.save(function(err, ingredient) {
 		if(err) {
@@ -21,7 +21,7 @@ exports.createIngredient = function(req, res, next) {
 	})
 }
 
-exports.getIngredient = function(req, res, next) {
+exports.get = function(req, res, next) {
 	Ingredient.findById(new ObjectID(req.params.id), function(err, ingredient) {
 		if(err) {
 			res.status(500);
@@ -47,7 +47,7 @@ exports.getIngredient = function(req, res, next) {
 	})
 }
 
-exports.updateIngredient = function(req, res, next) {
+exports.update = function(req, res, next) {
 	var updatedIngredientModel = new Ingredient(req.body);
 	Ingredient.findByIdAndUpdate(new ObjectId(req.params.id), updatedIngredientModel, function(err, ingredient) {
 		if(err) {
@@ -74,7 +74,7 @@ exports.updateIngredient = function(req, res, next) {
 	})
 }
 
-exports.deleteIngredient = function(req, res, next) {
+exports.delete = function(req, res, next) {
 	Ingredient.findByIdAndRemove(new Object(req.params.id), function(err, ingredient) {
 		if(err) {
 			res.status(500);

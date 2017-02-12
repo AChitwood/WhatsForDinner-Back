@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
 	User = mongoose.model("User"),
 	ObjectID = mongoose.Types.ObjectID
 
-exports.createUser = function(req, res, next) {
+exports.create = function(req, res, next) {
 	var userModel = new User(req.body);
 	userModel.save(function(err, user) {
 		if(err) {
@@ -21,7 +21,7 @@ exports.createUser = function(req, res, next) {
 	})
 }
 
-exports.getUser = function(req, res, next) {
+exports.get = function(req, res, next) {
 	User.findById(new ObjectID(req.params.id), function(err, user) {
 		if(err) {
 			res.status(500);
@@ -47,7 +47,7 @@ exports.getUser = function(req, res, next) {
 	})
 }
 
-exports.updateUser = function(req, res, next) {
+exports.update = function(req, res, next) {
 	var updatedUserModel = new User(req.body);
 	User.findByIdAndUpdate(new ObjectId(req.params.id), updatedUserModel, function(err, user) {
 		if(err) {
@@ -74,7 +74,7 @@ exports.updateUser = function(req, res, next) {
 	})
 }
 
-exports.deleteUser = function(req, res, next) {
+exports.delete = function(req, res, next) {
 	User.findByIdAndRemove(new Object(req.params.id), function(err, user) {
 		if(err) {
 			res.status(500);
