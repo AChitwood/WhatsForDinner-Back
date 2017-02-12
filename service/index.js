@@ -1,13 +1,22 @@
-var express = require('express')
-var json = require('express-json');
-var app = express()
+var express = require('express'),
+   //json = require('express-json'),
+   restful = require('node-restful'),
+   mongoose = restful.mongoose;
 
-app.configure(function(){
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-})
 
-app.use(json())
+var app = express();
+
+// app.configure(function(){
+//   app.use(express.bodyParser());
+//   app.use(express.methodOverride());
+// });
+
+//Connect to mongo
+//mongoose.connect('mongodb://localhost/restful');
+
+
+
+//app.use(json())
 
 app.get('/', function (req, res) {
   res.json({

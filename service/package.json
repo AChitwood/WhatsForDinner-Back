@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/AChitwood/WhatsForDinner-Back#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "latest",
+    "mongoose": "latest",
+    "node-restful": "latest"
   }
 }
