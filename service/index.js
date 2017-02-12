@@ -27,11 +27,25 @@ server.use(restify.fullResponse());
 //............  Setup Controllers
 var controllers = {};
 controllers['ingredient'] = require('./app/ingredient/index.js');
+controllers['recipe'] = require('./app/recipe/index.js');
+controllers['user'] = require('./app/user/index.js');
 
 
 
 //............  Endpoints
-server.get('/ingredient/:id', controllers.ingredient.getIngredient)
+server.get('/ingredient/:id', controllers.ingredient.get)
+server.put('/ingredient/:id', controllers.ingredient.update)
+server.post('/ingredient', controllers.ingredient.create)
+
+server.get('/recipe/:id', controllers.recipe.get)
+server.put('/recipe/:id', controllers.recipe.update)
+server.post('/recipe/', controllers.recipe.create)
+
+server.get('/user/:id', controllers.user.get)
+server.put('/user/:id', controllers.user.update)
+server.post('/user/', controllers.user.create)
+
+
 
 
 
