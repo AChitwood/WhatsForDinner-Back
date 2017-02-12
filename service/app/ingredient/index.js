@@ -50,5 +50,6 @@ exports.getIngredient = function(req, res, next) {
 		data: {
 			name: "Test"
 		}
-	})
+	});
+	
 }
