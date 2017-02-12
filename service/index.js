@@ -3,12 +3,14 @@ require('./app/recipe/recipe.js');
 require('./app/user/user.js');
 
 var restful = require('node-restful'),
-   //mongoose = restful.mongoose,
+   mongoose = restful.mongoose,
    restify = require('restify');
 
 
 //Connect to mongo
-//mongoose.connect('mongodb://localhost/restful');
+mongoose.connect('mongodb://localhost/whats_for_dinner_db');
+//Local only
+//mongoose.connect('mongodb://username:password@host:port/database?options...');
 
 
 
