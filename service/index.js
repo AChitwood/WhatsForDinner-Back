@@ -43,11 +43,11 @@ server.post('/ingredient', controllers.ingredient.create)
 
 server.get('/recipe/:id', controllers.recipe.get)
 server.put('/recipe/:id', controllers.recipe.update)
-server.post('/recipe/', controllers.recipe.create)
+server.post('/recipe', controllers.recipe.create)
 
 server.get('/user/:id', controllers.user.get)
 server.put('/user/:id', controllers.user.update)
-server.post('/user/', controllers.user.create)
+server.post('/user', controllers.user.create)
 
 
 
@@ -65,9 +65,16 @@ server.get('/', function (req, res) {
 
 
 //............  Authentication
-server.use(function authenticate(req, res, next) {
-  if(req.username == "test" && rec.authorization.basic.password == "test")
-    return next();
+server.use(restify.authorizationParser());
+server.use(function (req, res, next){
+  if (req.username !== "test" || req.authorization.basic.password !== "test") {
+        // Respond with { code: 'NotAuthorized', message: '' }
+        next(new restify.NotAuthorizedError());
+    } else {
+        next();
+    }
+
+    next();
 });
 
 
