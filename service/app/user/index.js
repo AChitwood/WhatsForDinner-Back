@@ -98,6 +98,7 @@ exports.login = function(req, res, next) {
 		"test": "test"
 	})
 	next();
+	
 	// User.find({ email: req.headers['username'] }, function(err, user) {
 	// 	if(err) {
 	// 		res.status(500);
