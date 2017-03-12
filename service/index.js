@@ -77,7 +77,7 @@ server.put('/recipe/:id', controllers.recipe.update)
 server.post('/recipe', controllers.recipe.create)
 
 server.get('/user/:id', controllers.user.get)
-server.get('/user/login', controllers.user.login)
+server.get('/user/login/:name', controllers.user.login)
 server.put('/user/:id', controllers.user.update)
 server.post('/user', controllers.user.create)
 
