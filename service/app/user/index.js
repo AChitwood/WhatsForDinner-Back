@@ -93,6 +93,7 @@ exports.delete = function(req, res, next) {
 }
 
 exports.login = function(req, res, next) {
+	console.log(req.header('username'));
 	User.find({ email: req.header('username') }, function(err, user) {
 		if(err) {
 			res.status(500);
