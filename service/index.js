@@ -70,6 +70,7 @@ server.use(function (req, res, next){
   if (req.username !== "test" || req.authorization.basic.password !== "test") {
         // Respond with { code: 'NotAuthorized', message: '' }
         next(new restify.NotAuthorizedError());
+        console.log("Not authenticated");
     } else {
         next();
     }
