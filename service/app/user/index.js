@@ -93,34 +93,28 @@ exports.delete = function(req, res, next) {
 }
 
 exports.login = function(req, res, next) {
-	res.status(400)
-	res.json({
-		"test": "test"
+	User.find({ email: req.headers['username'] }, function(err, user) {
+		if(err) {
+			res.status(500);
+			res.json({
+				type: false,
+				data: "Error occured: " + err
+			})
+		}
+		else {
+			if(user) {
+				res.json({
+					type: true,
+					data: user
+				})
+			}
+			else {
+				res.status(401);
+				res.json({
+					type: false,
+					data: "user not found"
+				})
+			}
+		}
 	})
-	next();
-	
-	// User.find({ email: req.headers['username'] }, function(err, user) {
-	// 	if(err) {
-	// 		res.status(500);
-	// 		res.json({
-	// 			type: false,
-	// 			data: "Error occured: " + err
-	// 		})
-	// 	}
-	// 	else {
-	// 		if(user) {
-	// 			res.json({
-	// 				type: true,
-	// 				data: user
-	// 			})
-	// 		}
-	// 		else {
-	// 			res.status(401);
-	// 			res.json({
-	// 				type: false,
-	// 				data: "user not found"
-	// 			})
-	// 		}
-	// 	}
-	// })
 }
