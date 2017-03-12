@@ -11,7 +11,7 @@ var restful = require('node-restful'),
 mongoose.Promise = require('bluebird');
 mongoose.connect('mongodb://localhost/whats_for_dinner_db');
 //Local only
-//mongoose.connect('mongodb://username:passwordHere@uaf135145.ddns.uark.edu/whats_for_dinner_db');
+//mongoose.connect('mongodb://user:password@uaf135145.ddns.uark.edu:22/whats_for_dinner_db');
 
 
 
@@ -60,6 +60,15 @@ server.get('/', function (req, res) {
       serverInfo : "You are talking to the WhatsForDiner web service"
   });
 })
+
+
+
+
+//............  Authentication
+server.use(function authenticate(req, res, next) {
+  if(req.username == "test" && rec.authorization.basic.password == "test")
+    return next();
+});
 
 
 
