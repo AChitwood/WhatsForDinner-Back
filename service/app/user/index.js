@@ -45,6 +45,8 @@ exports.get = function(req, res, next) {
 			}
 		}
 	})
+
+	next();
 }
 
 exports.update = function(req, res, next) {
