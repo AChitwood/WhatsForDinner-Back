@@ -91,3 +91,30 @@ exports.delete = function(req, res, next) {
 		}
 	})
 }
+
+exports.login = function(req, res, next) {
+	User.find({ email: req.params.name }, function(err, user) {
+		if(err) {
+			res.status(500);
+			res.json({
+				type: false,
+				data: "Error occured: " + err
+			})
+		}
+		else {
+			if(user) {
+				res.json({
+					type: true,
+					data: user
+				})
+			}
+			else {
+				res.status(401);
+				res.json({
+					type: false,
+					data: "user not found"
+				})
+			}
+		}
+	})
+}
