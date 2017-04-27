@@ -56,16 +56,25 @@ server.use(function (req, res, next){
     next();
 });
 server.use(restify.CORS({
-
-  // Defaults to ['*'].
-  origins: ['*'], 
-
-  // Defaults to false.
-  credentials: true,
-
-  // Sets expose-headers.
-  headers: ['Authorization']   
-
+    origins: ['*'],
+    headers: [
+        "authorization",
+        "withcredentials",
+        "x-requested-with",
+        "x-forwarded-for",
+        "x-real-ip",
+        "x-customheader",
+        "user-agent",
+        "keep-alive",
+        "host",
+        "accept",
+        "connection",
+        "upgrade",
+        "content-type",
+        "dnt",
+        "if-modified-since",
+        "cache-control"
+    ]
 }));
 
 
