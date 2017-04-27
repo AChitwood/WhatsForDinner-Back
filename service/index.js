@@ -55,31 +55,30 @@ server.use(function (req, res, next){
 
     next();
 });
-restify.CORS.ALLOW_HEADERS.push('Authorizationg');
-restify.CORS.ALLOW_HEADERS.push('Accept-Language');
-
-server.use(restify.CORS())
-// server.use(restify.CORS({
-//     origins: ['*'],
-//     headers: [
-//         "authorization",
-//         "withcredentials",
-//         "x-requested-with",
-//         "x-forwarded-for",
-//         "x-real-ip",
-//         "x-customheader",
-//         "user-agent",
-//         "keep-alive",
-//         "host",
-//         "accept",
-//         "connection",
-//         "upgrade",
-//         "content-type",
-//         "dnt",
-//         "if-modified-since",
-//         "cache-control"
-//     ]
-// }));
+restify.CORS.ALLOW_HEADERS.push('authorization');
+server.use(restify.fullResponse());
+//server.use(restify.CORS())
+server.use(restify.CORS({
+    origins: ['http://10.30.36.149:62115'],
+    headers: [
+        "authorization",
+        "withcredentials",
+        "x-requested-with",
+        "x-forwarded-for",
+        "x-real-ip",
+        "x-customheader",
+        "user-agent",
+        "keep-alive",
+        "host",
+        "accept",
+        "connection",
+        "upgrade",
+        "content-type",
+        "dnt",
+        "if-modified-since",
+        "cache-control"
+    ]
+}));
 
 
 
