@@ -8,8 +8,8 @@ var restful = require('node-restful'),
 
 
 //Connect to mongo
-mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost/whats_for_dinner_db');
+// mongoose.Promise = require('bluebird');
+// mongoose.connect('mongodb://localhost/whats_for_dinner_db');
 //Local only
 //mongoose.connect('mongodb://user:password@uaf135145.ddns.uark.edu:22/whats_for_dinner_db');
 
@@ -28,33 +28,33 @@ server.use(restify.fullResponse());
 
 
 //............  Authentication
-server.use(restify.authorizationParser());
-server.use(function (req, res, next){
-  var users;
+// server.use(restify.authorizationParser());
+// server.use(function (req, res, next){
+//   var users;
 
-    // if (/* some condition determining whether the resource requires authentication */) {
-    //    return next();
-    // }
+//     // if (/* some condition determining whether the resource requires authentication */) {
+//     //    return next();
+//     // }
 
-    users = {
-        foo: {
-            id: 1,
-            password: 'bar'
-        }
-    };
+//     users = {
+//         foo: {
+//             id: 1,
+//             password: 'bar'
+//         }
+//     };
 
-    // Ensure that user is not anonymous; and
-    // That user exists; and
-    // That user password matches the record in the database.
-    if (req.username == 'anonymous' || !users[req.username] || req.authorization.basic.password !== users[req.username].password) {
-        // Respond with { code: 'NotAuthorized', message: '' }
-        next(new restify.NotAuthorizedError());
-    } else {
-        next();
-    }
+//     // Ensure that user is not anonymous; and
+//     // That user exists; and
+//     // That user password matches the record in the database.
+//     if (req.username == 'anonymous' || !users[req.username] || req.authorization.basic.password !== users[req.username].password) {
+//         // Respond with { code: 'NotAuthorized', message: '' }
+//         next(new restify.NotAuthorizedError());
+//     } else {
+//         next();
+//     }
 
-    next();
-});
+//     next();
+// });
 
 
 
@@ -63,6 +63,7 @@ var controllers = {};
 controllers['ingredient'] = require('./app/ingredient/index.js');
 controllers['recipe'] = require('./app/recipe/index.js');
 controllers['user'] = require('./app/user/index.js');
+controllers['app'] = require('./app/index.js');
 
 
 
@@ -80,6 +81,8 @@ server.get('/user/:id', controllers.user.get)
 server.get('/user/login/:name', controllers.user.login)
 server.put('/user/:id', controllers.user.update)
 server.post('/user', controllers.user.create)
+
+server.get('/app/search/:searchText', controllers.app.search)
 
 
 
